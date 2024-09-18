@@ -1,0 +1,6 @@
+INFO - Anwendung gestartet
+DEBUG - Datenbankverbindung hergestellt
+ERROR - Datei nicht gefunden
+INFO - Vorgang abgeschlossen
+DEBUG - Speichernutzung: 45%
+ERROR - NullPointerException aufgetreten

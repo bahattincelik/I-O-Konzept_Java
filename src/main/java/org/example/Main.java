@@ -57,5 +57,45 @@ public class Main {
 //________________________________________________________________________________________________________________________
         scanner.close();
 
+        int infoCount=0;
+        int errorCount=0;
+        int debugCount=0;
+
+        try(BufferedReader reader = new BufferedReader(new FileReader("logfile.txt")) ) {
+            String line;
+            while((line=reader.readLine()) != null){
+                if(line.contains("INFO")){
+                    infoCount++;
+                }else if(line.contains("ERROR")){
+                    errorCount++;
+                }else if(line.contains("DEBUG")){
+                    debugCount++;
+                }
+            }
+
+        }
+        catch(Exception e){
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("summary.txt")) ) {
+            writer.write("INFO: " + infoCount + "\n");
+            writer.write("ERROR: " + errorCount + "\n");
+            writer.write("DEBUG: " + debugCount + "\n");
+            System.out.println("Summary written to summary.txt");
+
+        }
+        catch(Exception e){
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+
+
+
+
+
+
+
+
+
     }
 }
